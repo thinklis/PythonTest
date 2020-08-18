@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-17 22:24:51
+ LastEditTime : 2020-08-18 22:01:13
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -26,3 +26,4 @@ print('17. ', 'wer' + '2222')
 
 
 print('修改01test.py文件，目的练习git的使用')
+print('第二次修改test.py文件')
