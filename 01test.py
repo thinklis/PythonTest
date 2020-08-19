@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-19 08:04:28
+ LastEditTime : 2020-08-19 08:13:45
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -31,3 +31,4 @@ print('第二次修改test.py文件')
 print('这里是我在dev分支上的修改1')
 
 print('这是我在切换master分支后做的修改2')
+print('这是我在feature1分支上做的修改1')
