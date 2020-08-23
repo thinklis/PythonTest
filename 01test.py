@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-22 22:33:54
+ LastEditTime : 2020-08-23 23:03:27
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -41,7 +41,7 @@ print('这是我在feature1分支上做的修改1') """
 '''
 
 
-def double_list(lst):
+''' def double_list(lst):
     for index, item in enumerate(lst):
         if isinstance(item, bool):
             continue
@@ -54,7 +54,63 @@ def double_list(lst):
 if __name__ == '__main__':
     lst = [1, [4, 6], True]
     double_list(lst)
-    print(lst)
+    print(lst) '''
 
-print('这里是dev分支')
+''' print('这里是dev分支')
 print('今天学到了1.3.7')
+print('元组练习')
+ '''
+
+''' dic = {
+    'python': 95,
+    'java': 99,
+    'c': 100
+}
+print(len(dic))
+info = {
+    '小明': {
+        'fruits': ['苹果', '草莓', '香蕉'],
+        'money': 89
+    },
+    '小刚': {
+        'fruits': ['葡萄', '橘子', '樱桃'],
+        'money': 87
+    }
+} '''
+
+''' lst1 = [1, 2, 3, 5, 6, 3, 2]
+lst2 = [2, 5, 7, 9]
+
+set1 = set(lst1)
+set2 = set(lst2)
+
+# 那些整数既在lst1中，也在lst2中
+print(set1.intersection(set2))
+
+# 哪些整数在lst1中，不在lst2中
+print(set1.difference(set2))
+
+# 两个列表一共有哪些整数
+print(set1.union(set2)) '''
+
+# 2.基础语法篇
+# if条件语句
+''' value = input('请输入一个整数: ')
+i_value = int(value)
+if i_value % 2 == 0:
+    print('您输入的整数时：{value},它是偶数'.format(value=value))
+else:
+    print('您输入的整数时：{value},它时奇数'.format(value=value))
+ '''
+
+# 多条条件分支
+value = input('请输入一个整数：')
+
+if value == 'python':
+    print(90)
+elif value == 'java':
+    print(95)
+elif value == 'php':
+    print(85)
+else:
+    print(0)
