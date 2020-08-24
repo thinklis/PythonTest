@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-24 20:25:46
+ LastEditTime : 2020-08-24 22:57:36
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -457,3 +457,160 @@ def my_float(string):
 if __name__ == '__main__':
     print(my_float('34.22'))
     print(type(my_float('34.22'))) """
+
+# len函数
+
+""" from collections import Iterable
+
+
+def my_len(obj):
+    if not isinstance(obj, Iterable):
+        return None
+    length = 0
+    for item in obj:
+        length += 1
+    return length
+
+
+if __name__ == '__main__':
+    print(my_len('232'))
+    print(my_len([3, 4, 2, 1]))
+    print(my_len({'a': 4, 'b': 4}))
+    print(my_len((3, 5, 6, 6, 3)))
+    print(set([3, 5, 6, 6, 3]))  # set会去重 """
+
+""" lst = ['a', 'b', 'c']
+for index, item in enumerate(lst):
+    print(index, item)
+ """
+
+# 实现和enumerate类似的功能
+
+
+""" def my_enumerate(lst):
+    for i in range(len(lst)):
+        yield i, lst[i]
+
+
+lst = ['a', 'b', 'c']
+for index, item in my_enumerate(lst):
+    print(index, item) """
+
+# 深入理解return和yield
+
+
+""" def squre(n):
+    ls = [i*i for i in range(n)]
+    return ls
+
+
+for i in squre(5):
+    print(i, end=' ') """
+
+
+""" def squre(n):
+    for i in range(n):
+        yield i*i
+
+
+for i in squre(5):
+    print(i, end=' ') """
+# all 函数
+""" lst = [True, False, True]
+tup = (True, True, True)
+print(all(lst))
+print(all(tup)) """
+
+
+""" def my_all(lst):
+    for item in lst:
+        if not item:
+            return False
+    return True
+
+
+if __name__ == '__main__':
+    print(my_all([True, False, True])) """
+
+# any函数
+""" lst = [True, False, False]
+print(any(lst))
+ """
+
+
+""" def my_any(lst):
+    for item in lst:
+        if item:
+            return True
+    return False
+
+
+if __name__ == '__main__':
+    print(my_any([True, False, False])) """
+
+
+# bin函数，可以获取整数的二进制形式
+# print(bin(10))
+'''
+    description: 返回正整数value的二进制形式
+    param {value}
+    return {type}
+'''
+
+
+""" def my_bin(value):
+    lst = []
+    while value:
+        if value % 2 == 1:
+            lst.append('1')
+        else:
+            lst.append('0')
+        value = value >> 1
+        print('value====',value)
+    lst = lst[::-1]
+    return ''.join(lst)
+
+
+print(bin(10))
+
+if __name__ == '__main__':
+    # print(my_bin(3))
+    # print(my_bin(8))
+    print(my_bin(10)) """
+
+# 字符串方法
+'''
+ description:返回字符串source中，
+ 子串target开始的位置，从start索引开始搜索
+ param {source, target, start}
+ return {type}
+'''
+
+
+""" def my_find(source, target, start=0):
+    if not source or not target:
+        return -1
+    # 不合理的搜索起始位置
+    if start < 0 or start >= len(source):
+        return -1
+    if len(target) > len(source):
+        return -1
+    for index in range(start, len(source) - len(target)+1):
+        t_index = 0
+        while t_index < len(target):
+            if target[t_index] == source[t_index+index]:
+                t_index += 1
+            else:
+                break
+        if t_index == len(target):
+            return index
+    return -1
+
+
+if __name__ == '__main__':
+    # print(my_find('this is a book', 'this'))
+    # print(my_find('this is a book', 'this', start=1))
+    print(my_find('this is a book', 'book'))
+    print(my_find('this is a book', 'k', start=10))
+    print(my_find('this is a book', 'book', start=10))
+    print(my_find('this is a book', 'a', start=3)) """
