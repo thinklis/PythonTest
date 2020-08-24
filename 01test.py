@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-24 15:08:28
+ LastEditTime : 2020-08-24 20:25:46
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -278,3 +278,182 @@ for item in lst:
     else:
         print('输入为奇数') '''
 
+# 内置函数篇
+
+
+''' def my_abs(number):
+    if not isinstance(number, (float, int)):
+        return number
+    if number < 0:
+        number *= -1
+    return number
+
+
+if __name__ == '__main__':
+    print(my_abs(-3))
+    print(my_abs(-3.9))
+    print(my_abs(54.3))
+    print(my_abs('123')) '''
+
+# sum函数
+'''
+description: 返回列表里面所有的数据总和，
+如果列表里有非数字类型的数据，忽略不管
+param {type}
+return {type}
+'''
+
+
+''' def my_sum(lst):
+
+    sum_res = 0
+    if not isinstance(lst, list):
+        return sum_res
+    for item in lst:
+        if isinstance(item, (float, int)):
+            sum_res += item
+    return sum_res
+
+
+if __name__ == '__main__':
+    lst = [3, 4, '43', 5.4]
+    print(my_sum(lst)) '''
+
+# max函数
+'''
+ description: 返回序列里的最大值
+ param {lst}}
+ return {type}
+'''
+
+
+''' def my_max(seq):
+    max_value = None
+    if not isinstance(seq, (list, tuple)):
+        return max_value
+    if len(seq) == 0:
+        return max_value
+    max_value = seq[0]
+    for item in seq:
+        if not isinstance(item, (float, int)):
+            continue
+        if item > max_value:
+            max_value = item
+    return max_value
+
+
+if __name__ == '__main__':
+    lst = [3, 4, '43', 5.4]
+    print(my_max(lst)) '''
+
+# min函数
+# 返回序列里面的最小值
+
+
+""" def my_min(seq):
+    min_value = None
+    if not isinstance(seq, (list, tuple)):
+        return min_value
+    if len(seq) == 0:
+        return min_value
+    min_value = seq[0]
+    for item in seq:
+        if not isinstance(item, (float, int)):
+            continue
+        if item < min_value:
+            min_value = item
+    return min_value
+
+
+if __name__ == '__main__':
+    lst = [3, 4, '43', 5.4]
+    print(my_min(lst)) """
+
+# int函数
+# 将字符串string类型转换为int类型数据
+""" str_int_dic = {
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9
+}
+
+
+def my_int(string):
+    res = 0
+    for item in string:
+        int_value = str_int_dic[item]
+        res = res*10 + int_value
+    return res
+
+
+if __name__ == '__main__':
+    print(type(my_int('432'))) """
+
+# str函数
+""" def my_str(int_value):
+    if int_value == 0:
+        return '0'
+    lst = []
+    is_positive = True
+    if int_value < 0:
+        is_positive = False
+        int_value = abs(int_value)
+    while int_value:
+        number = int_value % 10   # 个位数
+        int_value //= 10  # 去除个位数后，还剩下的内容
+        str_number = chr(number+48)
+        lst.append((str_number))
+    if not is_positive:
+        lst.append('-')
+    lst = lst[::-1]
+    return ''.join(lst)
+
+
+if __name__ == '__main__':
+    print(my_str(0))
+    print(my_str(123))
+    print(my_str(-123))
+    print(type(my_str(0))) """
+
+# float函数
+""" str_int_dic = {
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9
+}
+
+
+def my_int(string):
+    res = 0
+    for item in string:
+        int_value = str_int_dic[item]
+        res = res*10 + int_value
+    return res
+
+
+def my_float(string):
+    arrs = string.split('.')
+    int_value = my_int(arrs[0])
+    float_value = my_int(arrs[1])
+    while float_value > 1:
+        float_value *= 0.1
+    return int_value + float_value
+
+
+if __name__ == '__main__':
+    print(my_float('34.22'))
+    print(type(my_float('34.22'))) """
