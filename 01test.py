@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-24 22:57:36
+ LastEditTime : 2020-08-26 21:30:41
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -614,3 +614,120 @@ if __name__ == '__main__':
     print(my_find('this is a book', 'k', start=10))
     print(my_find('this is a book', 'book', start=10))
     print(my_find('this is a book', 'a', start=3)) """
+
+
+# 字符串中的replace方法
+
+'''
+ description: 将字符串里所有的oldsub子串替换成newsub
+ param {source, oldsub, newsub}}
+ return {type}
+'''
+
+
+''' def my_replace(source, oldsub, newsub):
+    if not source or not oldsub:
+        return source
+    new_string = ''
+    start_index = 0
+    index = my_find(source, oldsub, start=start_index)
+    while index != -1:
+        new_string += source[start_index:index] + newsub
+        start_index = index+len(oldsub)
+        index = my_find(source, oldsub, start=start_index)
+    new_string += source[start_index:]
+    return new_string '''
+
+
+'''
+ description:返回字符串source中 子串target开始的位置，从start索引开始搜索
+ param {source, target, start}
+ return {type}
+'''
+
+
+''' def my_find(source, target, start=0):
+    if not source or not target:
+        return -1
+    # 不合理的搜索起始位置
+    if start < 0 or start >= len(source):
+        return -1
+    if len(target) > len(source):
+        return -1
+    for index in range(start, len(source) - len(target)+1):
+        t_index = 0
+        while t_index < len(target):
+            if target[t_index] == source[t_index+index]:
+                t_index += 1
+            else:
+                break
+        if t_index == len(target):
+            return index
+    return -1
+
+
+if __name__ == '__main__':
+    print(my_replace('this is a book', 'this', 'it'))
+    print(my_replace('this is a this book', 'this', 'it'))
+    print(my_replace('this is a this bookthis', 't2his', 'it')) '''
+
+# split函数
+'''
+ description:返回字符串source中 子串target开始的位置，从start索引开始搜索
+ param {source, target, start}
+ return {type}
+'''
+
+
+''' def my_find(source, target, start=0):
+    if not source or not target:
+        return -1
+    # 不合理的搜索起始位置
+    if start < 0 or start >= len(source):
+        return -1
+    if len(target) > len(source):
+        return -1
+    for index in range(start, len(source) - len(target)+1):
+        t_index = 0
+        while t_index < len(target):
+            if target[t_index] == source[t_index + index]:
+                t_index += 1
+            else:
+                break
+        if t_index == len(target):
+            return index
+    return -1 '''
+
+
+'''
+ description:以seq分割字符串source
+ param {source, seq, maxsplit}
+ return {type}
+'''
+
+
+''' def my_split(source, sep, maxsplit=-1):
+    if not source or not sep:
+        return []
+    lst = []
+    max_split_count = maxsplit if maxsplit > 0 else len(source)
+    split_count = 0
+    start_index = 0
+    index = my_find(source, sep, start=start_index)
+    while split_count < max_split_count and index != -1:
+        sep_str = source[start_index:index]
+        lst.append(sep_str)
+        split_count += 1
+        start_index = index + len(sep)
+        index = my_find(source, sep, start=start_index)
+    sep_str = source[start_index:]
+    lst.append(sep_str)
+    return lst
+
+
+if __name__ == '__main__':
+    print(my_split('1,3,4', ','))
+    print(my_split('abcadae', 'a'))
+    print(my_split('abcadae', 'a', maxsplit=2)) '''
+
+
