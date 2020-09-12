@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-08-26 21:30:41
+ LastEditTime : 2020-09-12 22:03:42
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -730,4 +730,182 @@ if __name__ == '__main__':
     print(my_split('abcadae', 'a'))
     print(my_split('abcadae', 'a', maxsplit=2)) '''
 
+
+'''
+ description: 将字符出string里所有的大写字母改成小写
+ param {string}
+ return {type}
+'''
+
+
+""" def lower(string):
+    if not string:
+        return None
+
+    lst = list(string)
+    for index, item in enumerate(lst):
+        ascii_index = ord(item)
+        if 65 <= ascii_index <= 90:
+            s = chr(ascii_index + 32)
+            lst[index] = s
+    return ''.join(lst)
+
+
+if __name__ == '__main__':
+    print(lower('232rSFD')) """
+
+
+'''
+ description: 判断字符串是否全部为小写字母
+ param {string}
+ return {type}
+'''
+
+
+""" def islower(string):
+    if not string:
+        return False
+    for item in string:
+        if 65 <= ord(item) <= 90:
+            return False
+    return True
+
+
+if __name__ == '__main__':
+    print(islower('232r'))
+    print(islower('23FFF'))
+ """
+
+
+'''
+ description: 实现isdigit,判断字符串里是否只包含数字0-9
+ param {string}
+ return {type}
+'''
+
+
+""" def isdigit(string):
+    if not string:
+        return False
+    for item in string:
+        if not (48 <= ord(item) <= 57):
+            return False
+    return True
+
+
+if __name__ == '__main__':
+    print(isdigit('234'))
+    print(isdigit('232r'))
+    print(isdigit(''))
+ """
+
+
+'''
+ description: 实现is_startswith，如果字符串source是以substr开头，则返回True，否则返回False
+ param {source, substr}
+ return {type}
+'''
+
+
+""" def is_startswith(source, substr):
+    if not source or not substr:
+        return False
+    if len(substr) > len(source):
+        return False
+    for index, item in enumerate(substr):
+        if item != source[index]:
+            break
+    else:
+        return True  # 如果for循环不是因为break结束的，就会进入到else语句块
+    return False
+
+
+if __name__ == '__main__':
+    print(is_startswith('python', 'py2')) """
+
+
+
+'''
+ description:  实现is_endswith，判断字符串source是否以substr结尾
+ param {source, substr}
+ return {type}
+'''
+
+
+""" def is_endswith(source, substr):
+    if not source or not substr:
+        return False
+    if len(substr) > len(source):
+        return False
+    start_index = len(source) - len(substr)
+    for index in range(start_index, len(source)):
+        print(index)
+        if source[index] != substr[index-start_index]:
+            break
+    else:
+        return True
+    return False
+
+
+if __name__ == '__main__':
+    print(is_endswith('python', 'on')) """
+
+
+""" def my_capitalize(string):
+    if not string:
+        return string
+    lst = []
+    for index, item in enumerate(string):
+        ascii_index = ord(item)
+        if index == 0:
+            if 97 <= ascii_index <=122:
+                item = chr(ascii_index - 32)
+        else:
+            if 65 <= ascii_index <= 90:
+                item = chr(ascii_index + 32)
+        lst.append(item)
+    print(lst)
+    return "".join(lst)  # 列表转换成字符串
+
+
+if __name__ == '__main__':
+    print(my_capitalize('rythoN'))
+    print(type(my_capitalize('python'))) """
+
+
+'''
+ description: 函数返回字符串source在start和end之前，子串target的数量，区间左闭右开
+ param {source, target, start, end} 
+ return {type} 
+'''
+
+
+def my_count(source, target, start, end):
+    if not source or not target:
+        return 0
+    if start >= end:
+        return 0
+    if start >= len(source) or start < 0:
+        return 0
+    count = 0
+    if end > len(source):
+        end = len(source)
+    index = start
+    while index < end:
+        t_index = 0
+        while t_index < len(target) and index+len(target) <= end:
+            if target[t_index] != source[index+t_index]:
+                break
+            t_index += 1
+        if t_index == len(target):
+            index += len(target)
+            count += 1
+        else:
+            index += 1
+    return count
+
+if __name__ == '__main__':
+    source = 'this is a book'
+    target = 'is'
+    print(my_count(source, target, 0, len(source)))
 
