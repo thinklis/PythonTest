@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-09-12 22:03:42
+ LastEditTime : 2020-09-17 19:22:37
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -824,7 +824,6 @@ if __name__ == '__main__':
     print(is_startswith('python', 'py2')) """
 
 
-
 '''
  description:  实现is_endswith，判断字符串source是否以substr结尾
  param {source, substr}
@@ -875,12 +874,12 @@ if __name__ == '__main__':
 
 '''
  description: 函数返回字符串source在start和end之前，子串target的数量，区间左闭右开
- param {source, target, start, end} 
- return {type} 
+ param {source, target, start, end}
+ return {type}
 '''
 
 
-def my_count(source, target, start, end):
+''' def my_count(source, target, start, end):
     if not source or not target:
         return 0
     if start >= end:
@@ -907,5 +906,196 @@ def my_count(source, target, start, end):
 if __name__ == '__main__':
     source = 'this is a book'
     target = 'is'
-    print(my_count(source, target, 0, len(source)))
+    print(my_count(source, target, 0, len(source))) '''
+
+
+# 冒泡排序
+''' def move_max(lst, max_index):
+    for i in range(max_index):
+        if lst[i] > lst[i+1]:
+            lst[i], lst[i+1] = lst[i+1], lst[i]
+
+
+if __name__ == '__main__':
+    lst = [7, 1, 4, 2, 3, 6]
+    move_max(lst, len(lst)-1)
+    print(lst) '''
+
+
+''' def pop_sort(lst):
+    for i in range(len(lst)-1, 1, -1):
+        print('i======{}'.format(i))
+        move_max(lst, i)
+
+
+def move_max(lst, max_index):
+    for i in range(max_index):
+        if lst[i] > lst[i+1]:
+            lst[i], lst[i+1] = lst[i+1], lst[i]
+
+
+if __name__ == '__main__':
+    lst = [7, 1, 4, 2, 3, 6]
+    pop_sort(lst)
+    print(lst) '''
+
+
+# 快速排序 递归
+'''
+ description: 用lst[start]做基准值，在start到end这个范围进行分区
+ param {type}
+ return {type}
+'''
+
+
+""" def partition(lst, start, end):
+    pivot = lst[start]
+
+    while start < end:
+        while start < end and lst[end] >= pivot:
+            end -= 1
+        lst[start] = lst[end]
+        while start < end and lst[start] <= pivot:
+            start += 1
+        lst[end] = lst[start]
+    lst[start] = pivot
+    return start
+
+
+def my_quick_sort(lst, start, end):
+    if start >= end:
+        return
+
+    index = partition(lst, start, end)
+    my_quick_sort(lst, start, index-1)
+    my_quick_sort(lst, index+1, end)
+
+
+if __name__ == '__main__':
+    lst = [4, 3, 2, 4, 1, 5, 7, 2]
+    my_quick_sort(lst, 0, len(lst)-1)
+    print(lst) """
+
+# 跳过排序算法
+
+# 6 简单算法篇
+# 6.1 打印杨辉三角
+'''
+ description: 递归算法打印杨辉三角
+ param {n}
+ return {type}
+'''
+
+
+''' def print_yanghui(n):
+    if n == 1:
+        print([1])
+        return [1]
+    elif n == 2:
+        print_yanghui(1)
+        print([1, 1])
+        return [1, 1]  # 这里如果不返回，第三行就没法生成
+    else:
+        lst = [1]  # 第一个元素
+        pre_lst = print_yanghui(n - 1)  # 得到上一行的元素
+        # 根据第n - 1 行的元素，生成第n行的中间元素
+        for i in range(len(pre_lst) - 1):
+            lst.append(pre_lst[i] + pre_lst[i+1])
+        lst.append(1)  # 最后一个元素
+        print(lst)
+        return lst
+
+
+if __name__ == '__main__':
+    print_yanghui(6) '''
+
+
+# 计算三角形周长和面积
+'''
+ description: 根据用户输入获得三条边，用空格分开
+ param {line}
+ return {type}
+'''
+
+
+''' def get_edge(line):
+    edge_lst = line.split(' ')
+    # 如果输入条数不是3
+    if len(edge_lst) != 3:
+        return False, (0, 0, 0)
+    try:
+        # raw_input 获得用户输入，得到的是字符串，这里把字符串转换成float数值
+        edge_lst = [float(item) for item in edge_lst]
+    except(Exception):
+        return False, (0, 0, 0)
+
+    return True, (edge_lst[0], edge_lst[1], edge_lst[2]) '''
+
+
+'''
+ description: 判断是否构成三角形
+ param {a, b, c}
+ return {type}
+'''
+
+
+''' def is_able_triangle(a, b, c):
+    return (a + b > c) and (a + c > b) and (c + b > a)
+
+
+def triangle_func():
+    while True:
+        line = input('输入三角形的三个边长，用空格隔开，退出请输入q：')
+        if line == 'q':
+            break
+        input_correct, edges = get_edge(line)
+        if not input_correct:
+            print('输入错误')
+            continue
+        if not is_able_triangle(edges[0], edges[1], edges[2]):
+            print('不能构成三角形')
+            continue
+        perimeter = sum(edges)
+        half_perimeter = perimeter//2
+        area = (half_perimeter*(half_perimeter-edges[0]) *
+                (half_perimeter - edges[1]) * (half_perimeter-edges[2])
+                ) ** 0.5
+        print('周长:{perimeter}面积：{area}'.format(perimeter=perimeter, area=area))
+
+
+if __name__ == '__main__':
+    triangle_func() '''
+
+
+# 忽略大小比较字符串是否相等
+
+
+''' def get_ord_value(string):
+    value = ord(string)
+    if 65 <= value <= 90:
+        value += 32
+    return value
+
+# 比较两个字符串是否相等
+
+
+def is_same_ignore_case(str1, str2):
+    if not isinstance(str1, str) or not isinstance(str2, str):
+        return False
+    if len(str1) != len(str2):
+        return False
+
+    # 统一转换为小写
+    for index, item in enumerate(str1):
+        value1 = get_ord_value(item)
+        value2 = get_ord_value(str2[index])
+        if value1 != value2:
+            return False
+    return True
+
+
+if __name__ == '__main__':
+    print(is_same_ignore_case('ABC', 'abc'))
+    print(is_same_ignore_case('ABC', 'abd')) '''
+
 
