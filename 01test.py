@@ -4,7 +4,7 @@
  Author       : lishuo
  Date         : 2020-08-17 14:08:22
  LastEditors  : lishuo
- LastEditTime : 2020-09-17 19:22:37
+ LastEditTime : 2020-09-20 22:09:08
  Description  : 第一天练习python编程
  FilePath     : \\python_code\\01test.py
 '''
@@ -1097,5 +1097,3 @@ def is_same_ignore_case(str1, str2):
 if __name__ == '__main__':
     print(is_same_ignore_case('ABC', 'abc'))
     print(is_same_ignore_case('ABC', 'abd')) '''
-
-
