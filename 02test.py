@@ -4,11 +4,11 @@
  Author       : lishuo
  Date         : 2020-08-17 22:14:07
  LastEditors  : lishuo
- LastEditTime : 2020-09-26 09:28:16
+ LastEditTime : 2020-09-26 09:33:58
  Description  : 测试git
  FilePath     : \\python_code\\02test.py
 '''
-from math import sqrt
+# from math import sqrt
 # from time import sleep
 # import random
 """ import os
